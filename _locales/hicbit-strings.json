@@ -34,7 +34,7 @@
   "Sensor.hicbit_Port.port2|block": "port 2",
   "Sensor.hicbit_Port.port3|block": "port 3",
   "Sensor.hicbit_Port.port4|block": "Port 4",
-  "Sensor.hicbit_Rocker|block": "Rocker|port %port| value |%value|",
+  "Sensor.hicbit_Rocker1|block": "Rocker|port %port| value |%value|",
   "Sensor.hicbit_SoundSensor|block": "Set the Sound sensor|port %port|detect the sound source",
   "Sensor.hicbit_avoidSensor|block": "Obstacle avoidance sensor|port %port|detect obstacle",
   "Sensor.hicbit_collisionsensor|block": "collision sensor|port %port|is trigger",

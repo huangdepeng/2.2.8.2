@@ -40,7 +40,7 @@
 	"Sensor.hicbit_collisionsensor|block":"碰撞传感器|%port|被触发",
 	"Sensor.hicbit_setPixelRGB|block":"设置彩灯接口|%port|和|%lightoffset|的RGB为红|%red|绿|%green|蓝|%blue|",
 	"Sensor.hicbit_onQdee_remote_ir_pressed|block":"当红外接收到遥控器码|%code|时",
-	"Sensor.hicbit_Rocker|block": "遥杆|%port|返回|%value|",
+	"Sensor.hicbit_Rocker1|block": "遥杆|%port|返回|%value|",
 	"Sensor.Dht11Result.Celsius|block":"温度（摄氏度）",
 	"Sensor.Dht11Result.Fahrenheit|block":"温度（华氏度）",
 	"Sensor.Dht11Result.humidity|block":"湿度（百分比）",

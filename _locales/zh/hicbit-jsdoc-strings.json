@@ -30,7 +30,7 @@
 	"Sensor.hicbit_collisionsensor":"检测碰撞传感器是否有触发，有触发返回1，没有触发返回0",
 	"Sensor.hicbit_setPixelRGB":"设置彩灯接口和颜色",
 	"Sensor.hicbit_onQdee_remote_ir_pressed":"当红外接收到遥控器码时,执行任务",
-	"Sensor.hicbit_Rocker": "判断遥感的方向",
+	"Sensor.hicbit_Rocker1": "判断遥感的方向",
 	"Sensor.hicbit_getDHT11value":"温湿度DHT11获取温湿度(下次使用时需1s延时)",
 
 	"IR.init:":"初始化红外遥控接收传感器",

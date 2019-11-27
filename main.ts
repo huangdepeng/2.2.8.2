@@ -810,7 +810,7 @@ namespace Sensor {
 
     let lhRGBLight: hicbitRGBLight.LHhicbitRGBLight;
     /**
-	 * Set Light belt
+	 * Set RGB
 	 */
     //% weight=85 blockId=hicbit_setPixelRGB block="Set light belt at |port %port| and |%lightoffset|color to |red %red|and|green %green|and|blue %blue|"
     //% inlineInputMode=inline
@@ -851,33 +851,13 @@ namespace Sensor {
         {
             lhRGBLight.RGB(lightoffset, red, green, blue); 
         }
-
     }
-
-    // /**
-    //  * button pushed.
-    //  */
-    // //% blockId=ir_received_left_event weight=88
-    // //% block="on |%btn| button pressed" shim=Sensor::onPressEvent
-    // export function ir_received_left_event(btn: RemoteButton, body:Action): void {
-    //     return;
-    // }
-
-    // /**
-    //  * initialises local variablesssss
-    //  */
-    // //% blockId=ir_init weight=89
-    // //% block="connect ir receiver to %pin" shim=Sensor::init
-    // export function ir_init(pin: hicbit_Port): void { 
-    //     return;
-    // }
-
 
     /**
      * Determine the direction of remote sensing.
      */
-    //% weight=88 blockId=hicbit_Rocker block="Rocker|port %port| value |%value|"
-    export function hicbit_Rocker(port: hicbit_Port, value: enRocker): boolean {
+    //% weight=88 blockId=hicbit_Rocker1 block="Rocker|port %port| value |%value|"
+    export function hicbit_Rocker1(port: hicbit_Port, value: enRocker): boolean {
         let ADCPin: AnalogPin;
         let ports: DigitalPin;
         let x;
@@ -905,7 +885,7 @@ namespace Sensor {
         }
         pins.digitalWritePin(ports, 0);
         x = pins.analogReadPin(ADCPin);//x轴模拟量获取
-
+        basic.pause(10);
         pins.digitalWritePin(ports, 1);
         y = pins.analogReadPin(ADCPin);//y轴模拟量获取
 
