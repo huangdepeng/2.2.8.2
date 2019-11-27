@@ -817,7 +817,7 @@ namespace Sensor {
     //% red.min=0 red.max=255
     //% green.min=0 green.max=255
     //% blue.min=0 blue.max=255
-    export function hicbit_setPixelRGB(port: hicbit_Port, lightoffset: hicbitLightsBelt, red: number, green: number, blue: number) {
+    export function hicbit_setPixelRGB(port: hicbit_Port, lightoffset: hicbitLight, red: number, green: number, blue: number) {
         switch (port) {
             case hicbit_Port.port1:
                 if (!lhRGBLight) {
@@ -840,17 +840,16 @@ namespace Sensor {
                 }
                 break;
         }
-        // hicbit_clearLight();
-        if (lightoffset == this._length)//全部
+        if (lightoffset == lhRGBLight._length)//全部
         {
-            for (let i = 0; i < this._length; i++)
+            for (let i = 0; i < lhRGBLight._length; i++)
             {
-                this.setBufferRGB(i, red, green, blue);     
+                lhRGBLight.RGB(i, red, green, blue);     
             }
         }
         else
         {
-            this.setBufferRGB(lightoffset, red, green, blue); 
+            lhRGBLight.RGB(lightoffset, red, green, blue); 
         }
 
     }
@@ -906,6 +905,7 @@ namespace Sensor {
         }
         pins.digitalWritePin(ports, 0);
         x = pins.analogReadPin(ADCPin);//x轴模拟量获取
+
         pins.digitalWritePin(ports, 1);
         y = pins.analogReadPin(ADCPin);//y轴模拟量获取
 

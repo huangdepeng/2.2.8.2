@@ -52,16 +52,7 @@ enum hicbitLight {
      All = 0x06
 }
 
-enum hicbitLightsBelt {
-        //% block="Light 1"
-        Light1 = 0x00,
-        //% block="Light 2"
-        Light2 = 0x01,
-        //% block="Light 3"
-        Light3 = 0x02,
-        //% block="All"
-        All = 0x03
-}
+
 
 /**
  * Different modes for RGB or RGB+W RGBLight QbitRGBColors
@@ -208,6 +199,10 @@ namespace hicbitRGBLight {
                 this.buf[offset + 1] = red;
             }
             this.buf[offset + 2] = blue;
+        }
+
+        RGB(offset: number, red: number, green: number, blue: number) : void { 
+            this.setBufferRGB(offset, red, green, blue); 
         }
 
         show() {
