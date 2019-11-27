@@ -902,25 +902,25 @@ namespace Sensor {
                 break;
         }
         let x = pins.analogReadPin(ADCPin_x);
-        
-        switch (port) {         //y轴模拟量获取
-            case hicbit_Port.port1:
-                pins.digitalWritePin(DigitalPin.P15, 0);
-                ADCPin_y = AnalogPin.P1;
-                break;
-            case hicbit_Port.port2:
-                pins.digitalWritePin(DigitalPin.P13, 0);
-                ADCPin_y = AnalogPin.P2;
-                break;
-            case hicbit_Port.port3:
-                pins.digitalWritePin(DigitalPin.P14, 0);
-                ADCPin_y = AnalogPin.P3;
-                break;
-            case hicbit_Port.port4:
-                pins.digitalWritePin(DigitalPin.P10, 0);
-                ADCPin_y = AnalogPin.P4;
-                break;
-        }
+
+        // switch (port) {         //y轴模拟量获取
+        //     case hicbit_Port.port1:
+        //         pins.digitalWritePin(DigitalPin.P15, 0);
+        //         ADCPin_y = AnalogPin.P1;
+        //         break;
+        //     case hicbit_Port.port2:
+        //         pins.digitalWritePin(DigitalPin.P13, 0);
+        //         ADCPin_y = AnalogPin.P2;
+        //         break;
+        //     case hicbit_Port.port3:
+        //         pins.digitalWritePin(DigitalPin.P14, 0);
+        //         ADCPin_y = AnalogPin.P3;
+        //         break;
+        //     case hicbit_Port.port4:
+        //         pins.digitalWritePin(DigitalPin.P10, 0);
+        //         ADCPin_y = AnalogPin.P4;
+        //         break;
+        // }
         let y = pins.analogReadPin(ADCPin_y);
 
         if (x < 100) // 上
