@@ -879,77 +879,60 @@ namespace Sensor {
      */
     //% weight=88 blockId=hicbit_Rocker block="Rocker|port %port| value |%value|"
     export function hicbit_Rocker(port: hicbit_Port, value: enRocker): boolean {
-        let ADCPin_x: AnalogPin;
-        let ADCPin_y: AnalogPin;
+        let ADCPin: AnalogPin;
+        let ports: DigitalPin;
+        let x;
+        let y;
+        let flag: boolean = false;
         let now_state = enRocker.Nostate;
 
-        switch (port) {         //x轴模拟量获取
+        switch (port) {         
             case hicbit_Port.port1:
-                pins.digitalWritePin(DigitalPin.P15, 1);
-                ADCPin_x = AnalogPin.P1;
+                ports = DigitalPin.P15;
+                ADCPin = AnalogPin.P1;
                 break;
             case hicbit_Port.port2:
-                pins.digitalWritePin(DigitalPin.P13, 1);
-                ADCPin_x = AnalogPin.P2;
+                ports = DigitalPin.P13;
+                ADCPin = AnalogPin.P2;
                 break;
             case hicbit_Port.port3:
-                pins.digitalWritePin(DigitalPin.P14, 1);
-                ADCPin_x = AnalogPin.P3;
+                ports = DigitalPin.P14;
+                ADCPin = AnalogPin.P3;
                 break;
             case hicbit_Port.port4:
-                pins.digitalWritePin(DigitalPin.P10, 1);
-                ADCPin_x = AnalogPin.P4;
+                ports = DigitalPin.P10;
+                ADCPin = AnalogPin.P4;
                 break;
         }
-        let x = pins.analogReadPin(ADCPin_x);
-
-        // switch (port) {         //y轴模拟量获取
-        //     case hicbit_Port.port1:
-        //         pins.digitalWritePin(DigitalPin.P15, 0);
-        //         ADCPin_y = AnalogPin.P1;
-        //         break;
-        //     case hicbit_Port.port2:
-        //         pins.digitalWritePin(DigitalPin.P13, 0);
-        //         ADCPin_y = AnalogPin.P2;
-        //         break;
-        //     case hicbit_Port.port3:
-        //         pins.digitalWritePin(DigitalPin.P14, 0);
-        //         ADCPin_y = AnalogPin.P3;
-        //         break;
-        //     case hicbit_Port.port4:
-        //         pins.digitalWritePin(DigitalPin.P10, 0);
-        //         ADCPin_y = AnalogPin.P4;
-        //         break;
-        // }
-        let y = pins.analogReadPin(ADCPin_y);
+        pins.digitalWritePin(ports, 0);
+        x = pins.analogReadPin(ADCPin);//x轴模拟量获取
+        pins.digitalWritePin(ports, 1);
+        y = pins.analogReadPin(ADCPin);//y轴模拟量获取
 
         if (x < 100) // 上
         {
-            // now_state = enRocker.Up;
             now_state = enRocker.Left;
         }
         else if (x > 900) //下
         {
-            // now_state = enRocker.Down;
             now_state = enRocker.Right;
         }
         else  // 左右
         {
             if (y < 100) //右
             {
-                // now_state = enRocker.Right;
                 now_state = enRocker.Up;
             }
             else if (y > 900) //左
             {
-                // now_state = enRocker.Left;
                 now_state = enRocker.Down;
             }
         }
         if (now_state == value)
-            return true;
+            flag = true;
         else
-            return false;
+            flag = false;
+        return flag;
     }
 
     /**
