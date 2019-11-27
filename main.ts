@@ -891,21 +891,21 @@ namespace Sensor {
 
         if (x < 100) // 上
         {
-            now_state = enRocker.Left;
+            now_state = enRocker.Up;
         }
-        else if (x > 900) //下
+        else if (x > 750) //下
         {
-            now_state = enRocker.Right;
+            now_state = enRocker.Down;
         }
         else  // 左右
         {
             if (y < 100) //右
             {
-                now_state = enRocker.Up;
+                now_state = enRocker.Left;
             }
-            else if (y > 900) //左
+            else if (y > 750) //左
             {
-                now_state = enRocker.Down;
+                now_state = enRocker.Right;
             }
         }
         if (now_state == value)
